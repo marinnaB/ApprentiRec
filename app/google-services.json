@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "486056326383",
+    "firebase_url": "https://apprentirec-app.firebaseio.com",
+    "project_id": "apprentirec-app",
+    "storage_bucket": "apprentirec-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486056326383:android:9d6ca39482b71ec8",
+        "android_client_info": {
+          "package_name": "com.apprentirec.apprentirec"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "486056326383-iaq8bco8c5avmfiirh3oksgn3jo1g3d6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.apprentirec.apprentirec",
+            "certificate_hash": "eb68e7b9b5a0e8e98a79754bfb7f97e5566535e9"
+          }
+        },
+        {
+          "client_id": "486056326383-a1ordarfpdugtp9vpm7l41htheo90mmq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsTZvgRuP7HaSr3rtwTjCcUEDxVY7Z6Co"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "486056326383-a1ordarfpdugtp9vpm7l41htheo90mmq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
