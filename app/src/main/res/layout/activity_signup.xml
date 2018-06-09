@@ -21,8 +21,26 @@
             android:layout_width="@dimen/logo_w_h"
             android:layout_height="@dimen/logo_w_h"
             android:layout_gravity="center"
-            android:layout_marginTop="1mm"
-            app:srcCompat="@drawable/recruitment" />
+            android:layout_marginTop="0mm"
+            app:srcCompat="@drawable/apprentirec" />
+
+        <EditText
+            android:id="@+id/firstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:hint="@string/first_name"
+            android:layout_marginTop="0mm"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:hint="@string/name"
+            android:layout_marginTop="0mm"
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/email"
@@ -30,19 +48,35 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:hint="@string/email"
-            android:layout_marginTop="1mm"
+            android:layout_marginTop="0mm"
             android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_password"
+            android:hint="@string/password"
             android:maxLines="1"
             android:imeOptions="actionUnspecified"
-            android:layout_marginTop="1mm"
-
+            android:layout_marginTop="0mm"
             android:inputType="textPassword" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1mm"
+            android:layout_gravity="center">
+            <RadioButton
+                android:id="@+id/candidate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/candidate"/>
+            <RadioButton
+                android:id="@+id/hr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/hr"/>
+        </RadioGroup>
 
         <!-- Registration -->
         <Button
@@ -50,7 +84,7 @@
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3mm"
+            android:layout_marginTop="2mm"
             android:background="@color/colorAccent"
             android:text="@string/action_sign_in_short"
             android:textStyle="bold" />
@@ -60,7 +94,7 @@
             android:id="@+id/btn_reset_password"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2mm"
+            android:layout_marginTop="1mm"
             android:background="@null"
             android:text="@string/btn_forgot_password"
             android:textAllCaps="false"
@@ -71,7 +105,7 @@
             android:id="@+id/sign_in_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1mm"
+            android:layout_marginTop="0mm"
             android:background="@null"
             android:text="@string/btn_link_to_login"
             android:textAllCaps="false"
