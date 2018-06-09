@@ -149,6 +149,7 @@ public class SignupActivity extends AppCompatActivity {
                                     userMap.put(Email,email);
                                     userMap.put(fName,firstName);
                                     userMap.put(Name,name);
+                                    
 
                                     store.collection(nameTable).add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
