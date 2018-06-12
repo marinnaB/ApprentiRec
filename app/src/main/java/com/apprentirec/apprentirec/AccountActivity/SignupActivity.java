@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -20,11 +19,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -63,14 +59,16 @@ public class SignupActivity extends AppCompatActivity {
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignupActivity.this, ResetPaswordActivity.class));
+                startActivity(new Intent(SignupActivity.this, ResetPasswordActivity.class));
             }
         });
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+
+                //finish();
+                startActivity(new Intent(SignupActivity.this, LoginActivity.class));
             }
         });
 
@@ -149,7 +147,7 @@ public class SignupActivity extends AppCompatActivity {
                                     userMap.put(Email,email);
                                     userMap.put(fName,firstName);
                                     userMap.put(Name,name);
-                                    
+
 
                                     store.collection(nameTable).add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
