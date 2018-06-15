@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="700dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".CV.ModifyCV"
+    tools:showIn="@layout/activity_modify_cv">
+
+
+    <EditText
+        android:id="@+id/edit_Competence"
+        android:layout_width="357dp"
+        android:layout_height="104dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dividerCompetence"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/edit_Experience"
+        android:layout_width="357dp"
+        android:layout_height="105dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dividerExperience"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/edit_Formation"
+        android:layout_width="357dp"
+        android:layout_height="104dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dividerFormation"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/titre_Langue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/Langue"
+        android:textColor="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toTopOf="@+id/dividerLangue"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Langue" />
+
+    <TextView
+        android:id="@+id/titre_Competence4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/COMPETENCE"
+        android:textColor="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toTopOf="@+id/dividerCompetence"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="COMPETENCE" />
+
+    <TextView
+        android:id="@+id/titre_Experience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/EXPERIENCE"
+        android:textColor="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toTopOf="@+id/dividerExperience"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="EXPERIENCE" />
+
+    <TextView
+        android:id="@+id/titre_Formation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/FORMATION"
+        android:textColor="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toTopOf="@+id/dividerFormation"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="FORMATION" />
+
+    <View
+        android:id="@+id/dividerCompetence"
+        android:layout_width="368dp"
+        android:layout_height="2dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_Experience" />
+
+    <View
+        android:id="@+id/dividerLangue"
+        android:layout_width="368dp"
+        android:layout_height="2dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_Competence" />
+
+    <View
+        android:id="@+id/dividerExperience"
+        android:layout_width="368dp"
+        android:layout_height="2dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_Formation" />
+
+    <View
+        android:id="@+id/dividerFormation"
+        android:layout_width="368dp"
+        android:layout_height="2dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="35dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_numCandidat" />
+
+    <EditText
+        android:id="@+id/text_nomCandidat"
+        android:layout_width="141dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/nom"
+        android:inputType="text"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/text_prenomCandidat"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/text_prenomCandidat"
+        android:layout_width="141dp"
+        android:layout_height="33dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/prenom"
+        android:inputType="text"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/btnImg_ajoutPdpCandidat"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/text_adrMailCandidat"
+        android:layout_width="282dp"
+        android:layout_height="33dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/adresse_mail"
+        android:inputType="textEmailAddress"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/btnImg_ajoutPdpCandidat"
+        app:layout_constraintTop_toBottomOf="@+id/text_nomCandidat" />
+
+    <EditText
+        android:id="@+id/text_numCandidat"
+        android:layout_width="282dp"
+        android:layout_height="33dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/num_ro_de_t_l_phone"
+        android:inputType="phone"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/btnImg_ajoutPdpCandidat"
+        app:layout_constraintTop_toBottomOf="@+id/text_adrMailCandidat" />
+
+    <ImageButton
+        android:id="@+id/btnImg_ajoutPdpCandidat"
+        android:layout_width="69dp"
+        android:layout_height="95dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
+        android:contentDescription="@string/btn_pdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+
+    <FrameLayout
+        android:layout_width="100dp"
+        android:layout_height="87dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="408dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/SaveCV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:backgroundTint="@color/bg_login" />
+
+        <TextView
+            android:id="@+id/text_saveCV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/Enregistrer"
+            tools:text="Enregistrer" />
+    </FrameLayout>
+
+
+
+
+    <EditText
+        android:id="@+id/edit_Langue"
+        android:layout_width="357dp"
+        android:layout_height="104dp"
+        android:layout_marginLeft="356dp"
+        android:layout_marginStart="356dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dividerLangue"
+        tools:ignore="LabelFor" />
+
+
+</android.support.constraint.ConstraintLayout>
+
