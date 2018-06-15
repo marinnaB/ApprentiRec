@@ -153,6 +153,9 @@ public class SignupActivity extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(DocumentReference documentReference) {
                                             Toast.makeText(SignupActivity.this, "User succesfully added.", Toast.LENGTH_SHORT).show();
+
+                                            //rh or candidate login à completer
+
                                             startActivity(new Intent(SignupActivity.this, MainActivity.class));
                                             finish();
                                         }

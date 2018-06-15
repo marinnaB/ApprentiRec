@@ -39,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         //**********important, pour retenir la personne pour le login
+
         //if (auth.getCurrentUser() != null) {
 
             // si rh ou apprenti, à completer
@@ -46,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         //    startActivity(new Intent(LoginActivity.this, MainActivity.class));
         //    finish();
        // }
-        
+
 
 
 
@@ -115,11 +116,27 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                 } else {
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                     //si rh ou apprenti à completer
 
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
+                                    //Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    //startActivity(intent);
+                                    //finish();
                                 }
                             }
                         });
