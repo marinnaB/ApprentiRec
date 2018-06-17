@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class SignupActivity extends AppCompatActivity {
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private RadioButton chosen,chosen2;
     private Boolean candidateOrNot,HROrNot;
+    private ProgressBar progressBar;
     private FirebaseAuth auth;
     private FirebaseFirestore store;
 
@@ -55,6 +57,7 @@ public class SignupActivity extends AppCompatActivity {
         btnSignIn = (Button) findViewById(R.id.sign_in_button);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,11 +115,13 @@ public class SignupActivity extends AppCompatActivity {
                     return;
                 }
 
+                progressBar.setVisibility(View.VISIBLE);
 
                 auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
@@ -149,6 +154,8 @@ public class SignupActivity extends AppCompatActivity {
                                     store.collection(nameTable).document(email).set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {
+                                            progressBar.setVisibility(View.GONE);
+
                                             Toast.makeText(SignupActivity.this, "User succesfully added.", Toast.LENGTH_SHORT).show();
 
 
@@ -183,5 +190,6 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        progressBar.setVisibility(View.GONE);
     }
 }
