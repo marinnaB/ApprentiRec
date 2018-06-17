@@ -81,7 +81,7 @@ public class SignupActivity extends AppCompatActivity {
                 email = inputEmail.getText().toString().trim();
                 password = inputPassword.getText().toString().trim();
                 candidateOrNot = chosen.isChecked(); // check if candidate radiobutton is checked
-                HROrNot = chosen.isChecked(); // check if candidate radiobutton is checked
+                HROrNot = chosen2.isChecked(); // check if candidate radiobutton is checked
 
                 if (TextUtils.isEmpty(firstName)) {
                     Toast.makeText(getApplicationContext(), "Enter your first name!", Toast.LENGTH_SHORT).show();
@@ -130,34 +130,37 @@ public class SignupActivity extends AppCompatActivity {
 
                                     if (candidateOrNot==true){
                                         nameTable="Candidat";
-                                        Email="e-mailC";
                                         fName="firstNameC";
                                         Name="nameC";
                                     }
                                     else{
                                         nameTable="RH";
-                                        Email="e-mailHR";
                                         fName="firstNameHR";
                                         Name="nameHR";
 
                                     }
 
-
                                     Map<String,String> userMap=new HashMap<>();
-                                    userMap.put(Email,email);
                                     userMap.put(fName,firstName);
                                     userMap.put(Name,name);
 
+                                    //db.collection("cities").doc("LA").set({
 
-                                    store.collection(nameTable).add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    store.collection(nameTable).document(email).set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
-                                        public void onSuccess(DocumentReference documentReference) {
+                                        public void onSuccess(Void aVoid) {
                                             Toast.makeText(SignupActivity.this, "User succesfully added.", Toast.LENGTH_SHORT).show();
 
-                                            //rh or candidate login à completer
 
-                                            startActivity(new Intent(SignupActivity.this, MainActivity.class));
-                                            finish();
+                                            //rh or candidate login à completer
+                                            if (candidateOrNot==true) {
+                                                startActivity(new Intent(SignupActivity.this, CandidateProfileActivity.class));
+                                                finish();
+                                            }
+                                            else{
+                                                startActivity(new Intent(SignupActivity.this, HRProfileActivity.class));
+                                                finish();
+                                            }
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
@@ -168,13 +171,9 @@ public class SignupActivity extends AppCompatActivity {
                                         }
                                     });
 
-
                                 }
                             }
                         });
-
-
-
 
 
             }

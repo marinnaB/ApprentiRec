@@ -60,6 +60,7 @@ public class ModifyCV extends AppCompatActivity {
                 dataSave.put("Nom", nom);
                 dataSave.put("Prenom", prenom);
                 db.collection("Candidat")
+
                         .document(mail).collection("CV").document().update(dataSave)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
