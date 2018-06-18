@@ -12,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,11 +23,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
+    private FirebaseFirestore store;
     private ProgressBar progressBar;
     private Button btnSignup, btnLogin, btnReset;
 
@@ -36,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
+        store=FirebaseFirestore.getInstance();
 
 
         //**********important, pour retenir la personne pour le login
@@ -83,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = inputEmail.getText().toString();
+                final String email = inputEmail.getText().toString();
                 final String password = inputPassword.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {
@@ -117,26 +124,54 @@ public class LoginActivity extends AppCompatActivity {
                                 } else {
 
 
+                                    DocumentReference docRef = store.collection("Candidat").document(email);
+                                    docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                DocumentSnapshot document = task.getResult();
+                                                if (document.exists()) {
+
+                                                    Intent intent = new Intent(LoginActivity.this, CandidateProfileActivity.class);
+                                                    startActivity(intent);
+                                                    finish();
+
+                                                } else {
 
 
 
+                                                    DocumentReference docRef = store.collection("RH").document(email);
+                                                    docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                            if (task.isSuccessful()) {
+                                                                DocumentSnapshot document = task.getResult();
+                                                                if (document.exists()) {
+
+                                                                    Intent intent = new Intent(LoginActivity.this, HRProfileActivity.class);
+                                                                    startActivity(intent);
+                                                                    finish();
+
+                                                                } else {
+                                                                    Toast.makeText(getApplicationContext(), "Authentication failed: check your user name and password.", Toast.LENGTH_SHORT).show();
+
+                                                                }
+                                                            } else {
+                                                                Toast.makeText(getApplicationContext(), "Authentication failed.Please try again.", Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        }
+                                                    });
 
 
 
+                                                }
+                                            } else {
+                                                Toast.makeText(getApplicationContext(), "Authentication failed.Please try again", Toast.LENGTH_SHORT).show();
 
+                                            }
+                                        }
+                                    });
 
-
-
-
-
-
-
-
-                                    //si rh ou apprenti à completer
-
-                                    //Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    //startActivity(intent);
-                                    //finish();
                                 }
                             }
                         });

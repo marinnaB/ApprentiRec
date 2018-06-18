@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class SignupActivity extends AppCompatActivity {
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private RadioButton chosen,chosen2;
     private Boolean candidateOrNot,HROrNot;
+    private ProgressBar progressBar;
     private FirebaseAuth auth;
     private FirebaseFirestore store;
 
@@ -55,6 +57,7 @@ public class SignupActivity extends AppCompatActivity {
         btnSignIn = (Button) findViewById(R.id.sign_in_button);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +84,7 @@ public class SignupActivity extends AppCompatActivity {
                 email = inputEmail.getText().toString().trim();
                 password = inputPassword.getText().toString().trim();
                 candidateOrNot = chosen.isChecked(); // check if candidate radiobutton is checked
-                HROrNot = chosen.isChecked(); // check if candidate radiobutton is checked
+                HROrNot = chosen2.isChecked(); // check if candidate radiobutton is checked
 
                 if (TextUtils.isEmpty(firstName)) {
                     Toast.makeText(getApplicationContext(), "Enter your first name!", Toast.LENGTH_SHORT).show();
@@ -112,11 +115,13 @@ public class SignupActivity extends AppCompatActivity {
                     return;
                 }
 
+                progressBar.setVisibility(View.VISIBLE);
 
                 auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
@@ -130,34 +135,39 @@ public class SignupActivity extends AppCompatActivity {
 
                                     if (candidateOrNot==true){
                                         nameTable="Candidat";
-                                        Email="e-mailC";
                                         fName="firstNameC";
                                         Name="nameC";
                                     }
                                     else{
                                         nameTable="RH";
-                                        Email="e-mailHR";
                                         fName="firstNameHR";
                                         Name="nameHR";
 
                                     }
 
-
                                     Map<String,String> userMap=new HashMap<>();
-                                    userMap.put(Email,email);
                                     userMap.put(fName,firstName);
                                     userMap.put(Name,name);
 
+                                    //db.collection("cities").doc("LA").set({
 
-                                    store.collection(nameTable).add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    store.collection(nameTable).document(email).set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
-                                        public void onSuccess(DocumentReference documentReference) {
+                                        public void onSuccess(Void aVoid) {
+                                            progressBar.setVisibility(View.GONE);
+
                                             Toast.makeText(SignupActivity.this, "User succesfully added.", Toast.LENGTH_SHORT).show();
 
-                                            //rh or candidate login à completer
 
-                                            startActivity(new Intent(SignupActivity.this, MainActivity.class));
-                                            finish();
+                                            //rh or candidate login à completer
+                                            if (candidateOrNot==true) {
+                                                startActivity(new Intent(SignupActivity.this, CandidateProfileActivity.class));
+                                                finish();
+                                            }
+                                            else{
+                                                startActivity(new Intent(SignupActivity.this, HRProfileActivity.class));
+                                                finish();
+                                            }
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
@@ -168,13 +178,9 @@ public class SignupActivity extends AppCompatActivity {
                                         }
                                     });
 
-
                                 }
                             }
                         });
-
-
-
 
 
             }
@@ -184,5 +190,6 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        progressBar.setVisibility(View.GONE);
     }
 }
