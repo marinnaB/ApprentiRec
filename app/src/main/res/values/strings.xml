@@ -29,22 +29,17 @@
     <string name="btn_sign_out">Sign Out</string>
     <string name="lbl_forgot_password">Forgot password?</string>
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
-    <string name="title_activity_modifier_cv">ModifierCV</string>
 
-    <string name="title_activity_profile_candi">activity_profileCandidat</string>
-    <string name="nom">Nom</string>
-    <string name="prenom">Prenom</string>
-    <string name="adresse_mail">Adresse Mail</string>
-    <string name="num_ro_de_t_l_phone">Numéro de téléphone</string>
-    <string name="btn_pdp" />
+    <string name="phone_number">Phone Number</string>
+    <string name="btn_img_prof"/>
     <string name="cv">CV</string>
-    <string name="FORMATION">Formation</string>
-    <string name="EXPERIENCE">Experience </string>
-    <string name="COMPETENCE">Competence</string>
-    <string name="Langue"> Langue </string>
-    <string name="Enregistrer">Enregistrer</string>
-
+    <string name="FORMATIONS">Formations</string>
+    <string name="EXPERIENCES">Experiences </string>
+    <string name="SKILLS">Skills</string>
+    <string name="LANGUAGES"> Languages </string>
+    <string name="Register">Register</string>
     <string name="pdp_img">image Pdp</string>
+    <string name="Modify">Modify</string>
 
 
 </resources>

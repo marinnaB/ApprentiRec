@@ -126,7 +126,7 @@ public class SignupActivity extends AppCompatActivity {
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
 
-                                String nameTable,Email,fName,Name;
+                                final String nameTable,Email,fName,Name;
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
@@ -145,7 +145,7 @@ public class SignupActivity extends AppCompatActivity {
 
                                     }
 
-                                    Map<String,String> userMap=new HashMap<>();
+                                    final Map<String,String> userMap=new HashMap<>();
                                     userMap.put(fName,firstName);
                                     userMap.put(Name,name);
 
@@ -156,11 +156,11 @@ public class SignupActivity extends AppCompatActivity {
                                         public void onSuccess(Void aVoid) {
                                             progressBar.setVisibility(View.GONE);
 
-                                            Toast.makeText(SignupActivity.this, "User succesfully added.", Toast.LENGTH_SHORT).show();
-
+                                            Toast.makeText(SignupActivity.this, "User successfully added.", Toast.LENGTH_SHORT).show();
 
                                             //rh or candidate login à completer
                                             if (candidateOrNot==true) {
+
                                                 startActivity(new Intent(SignupActivity.this, CandidateProfileActivity.class));
                                                 finish();
                                             }

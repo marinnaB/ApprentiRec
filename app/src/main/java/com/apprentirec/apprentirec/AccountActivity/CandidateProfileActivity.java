@@ -20,7 +20,6 @@ public class CandidateProfileActivity extends AppCompatActivity {
 
         Intent i = getIntent();
         EmailUser = i.getStringExtra(LoginActivity.CLE);
-        //i.putExtra("EmailUser", i.getStringExtra(LoginActivity.CLE));
 
         Button ButCV = (Button) findViewById(R.id.cvCandidate);
 

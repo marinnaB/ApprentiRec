@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import com.apprentirec.apprentirec.MainActivity;
 import com.apprentirec.apprentirec.R;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;

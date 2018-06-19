@@ -13,7 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.apprentirec.apprentirec.AccountActivity.CandidateProfileActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -30,41 +32,69 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class CreerCV extends AppCompatActivity {
 
     public static final int PICK_IMAGE = 1;
-    private static final String TAG = "Firebase Candidat";
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-    ImageButton pdpCand;
-    //private CollectionReference db = FirebaseFirestore.getInstance().collection("Candidat");
+    private static final String TAG = "CreerCv_class";
+    private FirebaseFirestore store;
+    private ImageButton pdpCand;
+    private String MailUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        store = FirebaseFirestore.getInstance();
+        MailUser = CandidateProfileActivity.EmailUser;
         setContentView(R.layout.activity_creer_cv);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.SaveCV);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                System.out.println("Floating button pressed");
-                Map<String, Object> dataSave = new HashMap<>();
-
-                EditText nomC = (EditText) findViewById(R.id.text_nomCandidat);
-                EditText prenomC = (EditText) findViewById(R.id.text_prenomCandidat);
+                EditText nameC = (EditText) findViewById(R.id.text_nomCandidat);
+                EditText surnameC = (EditText) findViewById(R.id.text_prenomCandidat);
                 EditText mailC = (EditText) findViewById(R.id.text_adrMailCandidat);
-                String nom = nomC.getText().toString();
-                String prenom = prenomC.getText().toString();
-                final String mail = mailC.getText().toString();
+                EditText phoneC = (EditText) findViewById(R.id.text_numCandidat);
 
-                if(nom.isEmpty() || prenom.isEmpty() || mail.isEmpty()){return;}
+                EditText FormationC = (EditText) findViewById(R.id.edit_Formation);
+                EditText ExperienceC = (EditText) findViewById(R.id.edit_Experience);
+                EditText SkillC = (EditText) findViewById(R.id.edit_Competence);
+                EditText LanguageC = (EditText) findViewById(R.id.edit_Langue);
+
+                String nom = nameC.getText().toString();
+                String prenom = surnameC.getText().toString();
+                String mail = mailC.getText().toString();
+                String phone = phoneC.getText().toString();
+
+                String Formation = FormationC.getText().toString();
+                String Experience = ExperienceC.getText().toString();
+                String Skill = SkillC.getText().toString();
+                String Language = LanguageC.getText().toString();
+
+                if(nom.isEmpty() || prenom.isEmpty() || mail.isEmpty() || phone.isEmpty()
+                        || Formation.isEmpty()||Experience.isEmpty()||Skill.isEmpty()||Language.isEmpty()){return;}
+
+                if (phone.length() <= 10) {
+                    Toast.makeText(getApplicationContext(), "Phone number's format is Wrong!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Map<String, Object> dataSave = new HashMap<>();
 
                 dataSave.put("Nom", nom);
                 dataSave.put("Prenom", prenom);
-                db.collection("Candidat")
-                        .document(mail).collection("CV").document().update(dataSave)
+                dataSave.put("Tel", phone);
+                dataSave.put("Email", mail);
+
+                dataSave.put("Experience", Experience);
+                dataSave.put("Formation", Formation);
+                dataSave.put("Competence", Skill);
+                dataSave.put("Langue", Language);
+
+                store.collection("Candidat").document(MailUser).collection("CV").document("CV").update(dataSave)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Log.d(TAG, "Document " + mail +" successfully updated!");
+                                Toast.makeText(getApplicationContext(), "Information Successfully Updated!", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -92,12 +122,12 @@ public class CreerCV extends AppCompatActivity {
 
                     chooserIntent = Intent.createChooser(getIntent, "Select Image");
                     chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
+
+                    startActivityForResult(chooserIntent, PICK_IMAGE);
                 }catch (Exception e) {
-                    System.err.println("Caught IOException: " + e.getMessage());
+                    Log.w(TAG, "Select Image Error", e);
                     return;
                 }
-
-                startActivityForResult(chooserIntent, PICK_IMAGE);
             }
         } );
     }

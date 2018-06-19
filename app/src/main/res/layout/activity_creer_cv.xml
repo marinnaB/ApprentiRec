@@ -11,17 +11,15 @@
         android:id="@+id/btnImg_ajoutPdpCandidat"
         android:layout_width="82dp"
         android:layout_height="119dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/pdp_img"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/apprentirec" />
 
-    <TextView
+    <EditText
         android:id="@+id/text_numCandidat"
         android:layout_width="0dp"
         android:layout_height="33dp"
@@ -31,13 +29,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="@string/phone_number"
         android:inputType="phone"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnImg_ajoutPdpCandidat"
         app:layout_constraintTop_toBottomOf="@+id/text_adrMailCandidat" />
 
-    <TextView
+    <EditText
         android:id="@+id/text_adrMailCandidat"
         android:layout_width="0dp"
         android:layout_height="33dp"
@@ -47,26 +46,28 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnImg_ajoutPdpCandidat"
         app:layout_constraintTop_toBottomOf="@+id/text_nomCandidat" />
 
-    <TextView
+    <EditText
         android:id="@+id/text_prenomCandidat"
         android:layout_width="126dp"
         android:layout_height="33dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:hint="@string/name"
         android:inputType="text"
         android:textColor="?attr/colorPrimary"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/btnImg_ajoutPdpCandidat"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/text_nomCandidat"
         android:layout_width="0dp"
         android:layout_height="33dp"
@@ -75,6 +76,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:hint="@string/first_name"
         android:inputType="text"
         android:textColor="?attr/colorPrimary"
         android:textSize="12sp"
@@ -83,33 +85,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
-        android:layout_width="108dp"
-        android:layout_height="124dp"
+        android:layout_width="89dp"
+        android:layout_height="89dp"
         android:layout_gravity="bottom|right"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="372dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.94"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/text_saveCV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/Enregistrer"
-            tools:text="Enregistrer" />
+            android:text="@string/Register" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/SaveCV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            app:backgroundTint="@color/bg_login" />
+            app:backgroundTint="#0126ae90"
+            app:rippleColor="@color/bg_register" />
 
     </FrameLayout>
 
@@ -117,17 +115,15 @@
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="352dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.795"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.979">
+        app:layout_constraintTop_toBottomOf="@+id/text_numCandidat">
 
         <LinearLayout
             android:id="@+id/LinearLayoutCV"
@@ -141,11 +137,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginStart="16dp"
-                android:text="@string/FORMATION"
+                android:text="@string/FORMATIONS"
                 android:textColor="@android:color/holo_green_dark"
                 app:layout_constraintBottom_toTopOf="@+id/dividerFormation"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="FORMATION" />
+                tools:text="FORMATIONS" />
 
             <View
                 android:id="@+id/dividerFormation"
@@ -156,7 +152,7 @@
                 android:background="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <TextView
+            <EditText
                 android:id="@+id/edit_Formation"
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
@@ -173,11 +169,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
-                android:text="@string/EXPERIENCE"
+                android:text="@string/EXPERIENCES"
                 android:textColor="@android:color/holo_green_dark"
                 app:layout_constraintBottom_toTopOf="@+id/dividerExperience"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="EXPERIENCE" />
+                tools:text="EXPERIENCES" />
 
             <View
                 android:id="@+id/dividerExperience"
@@ -188,7 +184,7 @@
                 android:background="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <TextView
+            <EditText
                 android:id="@+id/edit_Experience"
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
@@ -204,11 +200,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
-                android:text="@string/COMPETENCE"
+                android:text="@string/SKILLS"
                 android:textColor="@android:color/holo_green_dark"
                 app:layout_constraintBottom_toTopOf="@+id/dividerCompetence"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="COMPETENCE" />
+                tools:text="SKILLS" />
 
             <View
                 android:id="@+id/dividerCompetence"
@@ -219,7 +215,7 @@
                 android:background="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <TextView
+            <EditText
                 android:id="@+id/edit_Competence"
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
@@ -234,10 +230,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
-                android:text="@string/Langue"
+                android:text="@string/LANGUAGES"
                 android:textColor="@android:color/holo_green_dark"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="LANGUE" />
+                tools:text="LANGUAGES" />
 
             <View
                 android:id="@+id/dividerLangue"
@@ -246,7 +242,7 @@
                 android:background="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <TextView
+            <EditText
                 android:id="@+id/edit_Langue"
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
