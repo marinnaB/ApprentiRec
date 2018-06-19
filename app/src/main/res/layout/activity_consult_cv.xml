@@ -29,7 +29,6 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/phone_number"
-        android:inputType="phone"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnImg_ajoutPdpCandidat"
@@ -46,7 +45,6 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/email"
-        android:inputType="textEmailAddress"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnImg_ajoutPdpCandidat"
@@ -60,7 +58,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:hint="@string/name"
-        android:inputType="text"
         android:textColor="?attr/colorPrimary"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/btnImg_ajoutPdpCandidat"
@@ -76,7 +73,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:hint="@string/first_name"
-        android:inputType="text"
         android:textColor="?attr/colorPrimary"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,10 +84,10 @@
         android:layout_height="89dp"
         android:layout_gravity="bottom|right"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp">
 
         <TextView
             android:id="@+id/text_saveCV"
@@ -159,7 +155,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
                 android:ems="10"
-                android:inputType="textMultiLine"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/dividerFormation"
@@ -173,9 +168,8 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/EXPERIENCES"
                 android:textColor="@android:color/holo_green_dark"
-                app:layout_constraintBottom_toTopOf="@+id/dividerExperience"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="EXPERIENCE" />
+                tools:text="EXPERIENCE"
+                android:layout_marginStart="16dp" />
 
             <View
                 android:id="@+id/dividerExperience"
@@ -191,7 +185,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
                 android:ems="10"
-                android:inputType="textMultiLine"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/dividerExperience" />
@@ -206,7 +199,8 @@
                 android:textColor="@android:color/holo_green_dark"
                 app:layout_constraintBottom_toTopOf="@+id/dividerCompetence"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="SKILLS" />
+                tools:text="SKILLS"
+                android:layout_marginStart="16dp" />
 
             <View
                 android:id="@+id/dividerCompetence"
@@ -222,7 +216,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
                 android:ems="10"
-                android:inputType="textMultiLine"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -235,7 +228,8 @@
                 android:text="@string/LANGUAGES"
                 android:textColor="@android:color/holo_green_dark"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="LANGUAGES" />
+                tools:text="LANGUAGES"
+                android:layout_marginStart="16dp" />
 
             <View
                 android:id="@+id/dividerLangue"
@@ -249,7 +243,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
                 android:ems="10"
-                android:inputType="textMultiLine"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

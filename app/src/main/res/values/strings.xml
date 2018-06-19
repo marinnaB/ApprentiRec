@@ -33,10 +33,10 @@
     <string name="phone_number">Phone Number</string>
     <string name="btn_img_prof"/>
     <string name="cv">CV</string>
-    <string name="FORMATIONS">Formations</string>
-    <string name="EXPERIENCES">Experiences </string>
-    <string name="SKILLS">Skills</string>
-    <string name="LANGUAGES"> Languages </string>
+    <string name="FORMATIONS">Your Formations</string>
+    <string name="EXPERIENCES">Your Experiences </string>
+    <string name="SKILLS">Your Skills</string>
+    <string name="LANGUAGES">Your Languages</string>
     <string name="Register">Register</string>
     <string name="pdp_img">image Pdp</string>
     <string name="Modify">Modify</string>

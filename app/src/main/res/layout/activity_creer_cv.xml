@@ -157,6 +157,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
                 android:ems="10"
+                android:hint="@string/FORMATIONS"
                 android:inputType="textMultiLine"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -173,7 +174,8 @@
                 android:textColor="@android:color/holo_green_dark"
                 app:layout_constraintBottom_toTopOf="@+id/dividerExperience"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="EXPERIENCES" />
+                tools:text="EXPERIENCES"
+                android:layout_marginStart="16dp" />
 
             <View
                 android:id="@+id/dividerExperience"
@@ -189,6 +191,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
                 android:ems="10"
+                android:hint="@string/EXPERIENCES"
                 android:inputType="textMultiLine"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -204,7 +207,8 @@
                 android:textColor="@android:color/holo_green_dark"
                 app:layout_constraintBottom_toTopOf="@+id/dividerCompetence"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="SKILLS" />
+                tools:text="SKILLS"
+                android:layout_marginStart="16dp" />
 
             <View
                 android:id="@+id/dividerCompetence"
@@ -220,6 +224,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
                 android:ems="10"
+                android:hint="@string/SKILLS"
                 android:inputType="textMultiLine"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -233,7 +238,8 @@
                 android:text="@string/LANGUAGES"
                 android:textColor="@android:color/holo_green_dark"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="LANGUAGES" />
+                tools:text="LANGUAGES"
+                android:layout_marginStart="16dp" />
 
             <View
                 android:id="@+id/dividerLangue"
@@ -247,6 +253,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
                 android:ems="10"
+                android:hint="@string/LANGUAGES"
                 android:inputType="textMultiLine"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
