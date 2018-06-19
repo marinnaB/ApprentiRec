@@ -21,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
+import java.io.IOException;
 import com.apprentirec.apprentirec.R;
 
 import com.apprentirec.apprentirec.R;
@@ -80,18 +81,21 @@ public class CreerCV extends AppCompatActivity {
         pdpCand.setOnClickListener(new Button.OnClickListener(){
 
             @Override
-            public void onClick(View v){
-                Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                getIntent.setType("image/*");
+            public void onClick(View v) {
+                Intent chooserIntent = null;
+                try{
+                    Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                    getIntent.setType("image/*");
 
-                Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                pickIntent.setType("image/*");
+                    Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    pickIntent.setType("image/*");
 
-                Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
-                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
-
-                if(chooserIntent == null)
+                    chooserIntent = Intent.createChooser(getIntent, "Select Image");
+                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
+                }catch (Exception e) {
+                    System.err.println("Caught IOException: " + e.getMessage());
                     return;
+                }
 
                 startActivityForResult(chooserIntent, PICK_IMAGE);
             }

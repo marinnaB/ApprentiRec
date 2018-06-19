@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseFirestore store;
     private ProgressBar progressBar;
     private Button btnSignup, btnLogin, btnReset;
+    public static final String CLE = "CleEmailUser";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +55,6 @@ public class LoginActivity extends AppCompatActivity {
         //    startActivity(new Intent(LoginActivity.this, MainActivity.class));
         //    finish();
        // }
-
-
-
 
 
         // set the view now
@@ -133,6 +131,7 @@ public class LoginActivity extends AppCompatActivity {
                                                 if (document.exists()) {
 
                                                     Intent intent = new Intent(LoginActivity.this, CandidateProfileActivity.class);
+                                                    intent.putExtra(CLE, email);
                                                     startActivity(intent);
                                                     finish();
 

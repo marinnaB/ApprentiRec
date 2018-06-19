@@ -44,5 +44,7 @@
     <string name="Langue"> Langue </string>
     <string name="Enregistrer">Enregistrer</string>
 
+    <string name="pdp_img">image Pdp</string>
+
 
 </resources>
