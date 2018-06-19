@@ -6,22 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".CV.ConsultCV">
 
-
     <ImageButton
         android:id="@+id/btnImg_ajoutPdpCandidat"
         android:layout_width="82dp"
         android:layout_height="119dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:contentDescription="TODO"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        android:layout_marginTop="4dp"
+        android:contentDescription="@string/pdp_img"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/apprentirec" />
 
-    <EditText
+    <TextView
         android:id="@+id/text_numCandidat"
         android:layout_width="0dp"
         android:layout_height="33dp"
@@ -37,7 +34,7 @@
         app:layout_constraintStart_toEndOf="@+id/btnImg_ajoutPdpCandidat"
         app:layout_constraintTop_toBottomOf="@+id/text_adrMailCandidat" />
 
-    <EditText
+    <TextView
         android:id="@+id/text_adrMailCandidat"
         android:layout_width="0dp"
         android:layout_height="33dp"
@@ -53,7 +50,7 @@
         app:layout_constraintStart_toEndOf="@+id/btnImg_ajoutPdpCandidat"
         app:layout_constraintTop_toBottomOf="@+id/text_nomCandidat" />
 
-    <EditText
+    <TextView
         android:id="@+id/text_prenomCandidat"
         android:layout_width="126dp"
         android:layout_height="33dp"
@@ -67,7 +64,7 @@
         app:layout_constraintStart_toEndOf="@+id/btnImg_ajoutPdpCandidat"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/text_nomCandidat"
         android:layout_width="0dp"
         android:layout_height="33dp"
@@ -158,7 +155,7 @@
                 android:background="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <EditText
+            <TextView
                 android:id="@+id/edit_Formation"
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
@@ -190,7 +187,7 @@
                 android:background="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <EditText
+            <TextView
                 android:id="@+id/edit_Experience"
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
@@ -221,7 +218,7 @@
                 android:background="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <EditText
+            <TextView
                 android:id="@+id/edit_Competence"
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
@@ -248,7 +245,7 @@
                 android:background="@color/colorPrimaryDark"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <EditText
+            <TextView
                 android:id="@+id/edit_Langue"
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
