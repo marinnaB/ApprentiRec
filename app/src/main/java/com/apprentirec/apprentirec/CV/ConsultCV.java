@@ -8,16 +8,21 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.apprentirec.apprentirec.AccountActivity.CandidateProfileActivity;
 
+import com.apprentirec.apprentirec.AccountActivity.SignupActivity;
 import com.apprentirec.apprentirec.R;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,15 +31,16 @@ public class ConsultCV extends AppCompatActivity {
 
     private static final String TAG = "Consult_Class_java";
     private FirebaseFirestore store;
+    private Boolean error;
     private TextView t_Name, t_FirstName, t_Mail, t_Phone, t_Formation, t_Experience, t_Skill, t_Language;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consult_cv);
-
-        //auth = FirebaseAuth.getInstance();
         store=FirebaseFirestore.getInstance();
+
+        error = true;
 
         String Mail = CandidateProfileActivity.EmailUser;
 
@@ -48,44 +54,40 @@ public class ConsultCV extends AppCompatActivity {
         t_Skill = (TextView) findViewById(R.id.edit_Competence);
         t_Language = (TextView) findViewById(R.id.edit_Langue);
 
-        final DocumentReference docRef = store.collection("Candidat").document(Mail);
+        final DocumentReference docRef = store.collection("CV").document(Mail);
 
-        docRef.collection("CV").document("CV").get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        t_Name.setText(documentSnapshot.get("Nom").toString());
-                        t_FirstName.setText(documentSnapshot.get("Prenom").toString());
-                        t_Mail.setText(documentSnapshot.get("Email").toString());
-                        t_Phone.setText(documentSnapshot.get("Tel").toString());
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot document = task.getResult();
+                if(document.exists()){
+                    t_Name.setText(document.get("Nom").toString());
+                    t_FirstName.setText(document.get("Prenom").toString());
+                    t_Mail.setText(document.get("Email").toString());
+                    t_Phone.setText(document.get("Tel").toString());
 
-                        t_Formation.setText(documentSnapshot.get("Formation").toString());
-                        t_Experience.setText(documentSnapshot.get("Experience").toString());
-                        t_Skill.setText(documentSnapshot.get("Competence").toString());
-                        t_Language.setText(documentSnapshot.get("Langue").toString());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Map<String, Object> data = new HashMap<>();
-                        data.put("Nom", t_Name);
-                        data.put("Prenom",t_FirstName);
-                        data.put("Email",t_Mail);
-                        data.put("Tel",t_Phone);
+                    t_Formation.setText(document.get("Formation").toString());
+                    t_Experience.setText(document.get("Experience").toString());
+                    t_Skill.setText(document.get("Competence").toString());
+                    t_Language.setText(document.get("Langue").toString());
+                }
+                else{
+                    Toast.makeText(ConsultCV.this, "add DB", Toast.LENGTH_SHORT).show();
 
-                        data.put("Formation", t_Formation);
-                        data.put("Experience", t_Experience);
-                        data.put("Competence", t_Skill);
-                        data.put("Langue", t_Language);
+                    Map<String, Object> data = new HashMap<>();
+                    data.put("Nom", "");
+                    data.put("Prenom","");
+                    data.put("Email","");
+                    data.put("Tel","");
 
-                        docRef.collection("CV").document("CV").set(data);
-                        Log.w(TAG, "CV's Data Created");
-                    }
-                });
-
-
-
+                    data.put("Formation", "");
+                    data.put("Experience", "");
+                    data.put("Competence", "");
+                    data.put("Langue", "");
+                    docRef.set(data, SetOptions.merge());
+                }
+            }
+        });
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.ModifyCV);
@@ -96,6 +98,7 @@ public class ConsultCV extends AppCompatActivity {
                 try{
                     Intent intModify = new Intent(ConsultCV.this, CreerCV.class);
                     startActivity(intModify);
+                    finish();
                 } catch (Exception e){
                     Log.v(TAG, e.getMessage());
                 }

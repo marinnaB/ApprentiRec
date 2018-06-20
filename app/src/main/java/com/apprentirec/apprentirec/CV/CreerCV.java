@@ -16,8 +16,12 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.apprentirec.apprentirec.AccountActivity.CandidateProfileActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.FileNotFoundException;
@@ -36,6 +40,7 @@ public class CreerCV extends AppCompatActivity {
     private FirebaseFirestore store;
     private ImageButton pdpCand;
     private String MailUser;
+    private EditText nameC, surnameC, mailC, phoneC, FormationC, ExperienceC, SkillC, LanguageC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,19 +51,39 @@ public class CreerCV extends AppCompatActivity {
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.SaveCV);
 
+        final DocumentReference docRef = store.collection("CV").document(MailUser);
+
+        nameC = (EditText) findViewById(R.id.text_nomCandidat);
+        surnameC = (EditText) findViewById(R.id.text_prenomCandidat);
+        mailC = (EditText) findViewById(R.id.text_adrMailCandidat);
+        phoneC = (EditText) findViewById(R.id.text_numCandidat);
+
+        FormationC = (EditText) findViewById(R.id.edit_Formation);
+        ExperienceC = (EditText) findViewById(R.id.edit_Experience);
+        SkillC = (EditText) findViewById(R.id.edit_Competence);
+        LanguageC = (EditText) findViewById(R.id.edit_Langue);
+
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot document = task.getResult();
+                if (document.exists()) {
+                    nameC.setText(document.get("Nom").toString());
+                    surnameC.setText(document.get("Prenom").toString());
+                    mailC.setText(document.get("Email").toString());
+                    phoneC.setText(document.get("Tel").toString());
+
+                    FormationC.setText(document.get("Formation").toString());
+                    ExperienceC.setText(document.get("Experience").toString());
+                    SkillC.setText(document.get("Competence").toString());
+                    LanguageC.setText(document.get("Langue").toString());
+                }
+            }
+        });
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                EditText nameC = (EditText) findViewById(R.id.text_nomCandidat);
-                EditText surnameC = (EditText) findViewById(R.id.text_prenomCandidat);
-                EditText mailC = (EditText) findViewById(R.id.text_adrMailCandidat);
-                EditText phoneC = (EditText) findViewById(R.id.text_numCandidat);
-
-                EditText FormationC = (EditText) findViewById(R.id.edit_Formation);
-                EditText ExperienceC = (EditText) findViewById(R.id.edit_Experience);
-                EditText SkillC = (EditText) findViewById(R.id.edit_Competence);
-                EditText LanguageC = (EditText) findViewById(R.id.edit_Langue);
 
                 String nom = nameC.getText().toString();
                 String prenom = surnameC.getText().toString();
@@ -71,7 +96,10 @@ public class CreerCV extends AppCompatActivity {
                 String Language = LanguageC.getText().toString();
 
                 if(nom.isEmpty() || prenom.isEmpty() || mail.isEmpty() || phone.isEmpty()
-                        || Formation.isEmpty()||Experience.isEmpty()||Skill.isEmpty()||Language.isEmpty()){return;}
+                        || Formation.isEmpty()||Experience.isEmpty()||Skill.isEmpty()||Language.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Some Text fields are empty!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 if (phone.length() < 10) {
                     Toast.makeText(getApplicationContext(), "Phone number's format is Wrong!", Toast.LENGTH_SHORT).show();
@@ -90,18 +118,19 @@ public class CreerCV extends AppCompatActivity {
                 dataSave.put("Competence", Skill);
                 dataSave.put("Langue", Language);
 
-                store.collection("Candidat").document(MailUser).collection("CV").document("CV").update(dataSave)
+                store.collection("CV").document(MailUser).update(dataSave)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Toast.makeText(getApplicationContext(), "Information Successfully Updated!", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(CreerCV.this, ConsultCV.class));
+                                finish();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Log.w(TAG, "Error updating document", e);
+                                Toast.makeText(getApplicationContext(), "Error Update!", Toast.LENGTH_SHORT).show();
                             }
                         });
             }
