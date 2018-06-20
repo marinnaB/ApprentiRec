@@ -14,16 +14,16 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
+            </intent-filter>
+        </activity>
         <activity android:name=".AccountActivity.LoginActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".AccountActivity.ResetPasswordActivity" />
         <activity android:name=".AccountActivity.CandidateProfileActivity" />
         <activity android:name=".AccountActivity.HRProfileActivity" />
-        <activity android:name=".CV.CreerCV">
-
-        </activity>
-        <activity android:name=".CV.ConsultCV"></activity>
+        <activity android:name=".CV.CreerCV"></activity>
+        <activity android:name=".CV.ConsultCV" />
+        <activity android:name=".ListOfferHR"></activity>
     </application>
 
 </manifest>

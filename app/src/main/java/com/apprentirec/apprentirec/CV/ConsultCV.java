@@ -48,9 +48,9 @@ public class ConsultCV extends AppCompatActivity {
         t_Skill = (TextView) findViewById(R.id.edit_Competence);
         t_Language = (TextView) findViewById(R.id.edit_Langue);
 
-        final DocumentReference docRef = store.collection("Candidat").document(Mail).collection("CV").document("CV");
+        final DocumentReference docRef = store.collection("Candidat").document(Mail);
 
-        docRef.get()
+        docRef.collection("CV").document("CV").get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -79,10 +79,14 @@ public class ConsultCV extends AppCompatActivity {
                         data.put("Competence", t_Skill);
                         data.put("Langue", t_Language);
 
-                        docRef.set(data);
-                        Log.w(TAG, "CV's Data Created", e);
+                        docRef.collection("CV").document("CV").set(data);
+                        Log.w(TAG, "CV's Data Created");
                     }
                 });
+
+
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.ModifyCV);
 
@@ -92,7 +96,6 @@ public class ConsultCV extends AppCompatActivity {
                 try{
                     Intent intModify = new Intent(ConsultCV.this, CreerCV.class);
                     startActivity(intModify);
-                    onPause();
                 } catch (Exception e){
                     Log.v(TAG, e.getMessage());
                 }

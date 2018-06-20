@@ -28,7 +28,9 @@ public class CandidateProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //finish();
+
                 startActivity(new Intent(CandidateProfileActivity.this, ConsultCV.class));
+                onPause();
             }
         });
 

@@ -73,7 +73,7 @@ public class CreerCV extends AppCompatActivity {
                 if(nom.isEmpty() || prenom.isEmpty() || mail.isEmpty() || phone.isEmpty()
                         || Formation.isEmpty()||Experience.isEmpty()||Skill.isEmpty()||Language.isEmpty()){return;}
 
-                if (phone.length() <= 10) {
+                if (phone.length() < 10) {
                     Toast.makeText(getApplicationContext(), "Phone number's format is Wrong!", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -95,6 +95,7 @@ public class CreerCV extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Toast.makeText(getApplicationContext(), "Information Successfully Updated!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(CreerCV.this, ConsultCV.class));
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
