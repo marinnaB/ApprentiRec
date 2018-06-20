@@ -59,7 +59,7 @@ public class ListOfferHR extends AppCompatActivity {
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HRProfileActivity.this, ListOfferHR.class));
+                //startActivity(new Intent(HRProfileActivity.this, ListOfferHR.class));
                 onPause();
             }
         });
