@@ -26,9 +26,6 @@ public class CandidateProfileActivity extends AppCompatActivity {
         ButCV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //finish();
-
                 startActivity(new Intent(CandidateProfileActivity.this, ConsultCV.class));
                 onPause();
             }

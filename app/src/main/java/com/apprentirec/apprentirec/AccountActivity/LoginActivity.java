@@ -147,6 +147,7 @@ public class LoginActivity extends AppCompatActivity {
                                                                 if (document.exists()) {
 
                                                                     Intent intent = new Intent(LoginActivity.this, HRProfileActivity.class);
+                                                                    intent.putExtra(CLE, email);
                                                                     startActivity(intent);
                                                                     finish();
 
