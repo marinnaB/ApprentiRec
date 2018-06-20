@@ -166,7 +166,11 @@ public class CreerCV extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         if (requestCode == PICK_IMAGE) {
-            Uri targetUri = data.getData();
+            Uri targetUri;
+            try{
+                targetUri = data.getData();
+            }catch(Exception e){ return; }
+
             Bitmap bitmap;
 
             try {
