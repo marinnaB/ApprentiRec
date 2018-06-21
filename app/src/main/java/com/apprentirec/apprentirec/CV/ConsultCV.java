@@ -55,7 +55,7 @@ public class ConsultCV extends AppCompatActivity {
         t_Language = (TextView) findViewById(R.id.edit_Langue);
 
         final DocumentReference docRef = store.collection("CV").document(Mail);
-        
+
 
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override

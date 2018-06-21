@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.apprentirec.apprentirec.ListOfferHR;
 import com.apprentirec.apprentirec.R;
+
+import java.util.List;
 
 public class HRProfileActivity extends AppCompatActivity {
 
@@ -25,6 +28,8 @@ public class HRProfileActivity extends AppCompatActivity {
 
         seeJobsHr.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                startActivity(new Intent(HRProfileActivity.this, ListOfferHR.class));
+                onPause();
             }
         });
         Button ButLogout = (Button) findViewById(R.id.logoutHR);

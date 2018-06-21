@@ -1,4 +1,5 @@
 package com.apprentirec.apprentirec.CV;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -28,6 +29,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.io.IOException;
+
 import com.apprentirec.apprentirec.R;
 
 import com.apprentirec.apprentirec.R;
@@ -84,7 +86,6 @@ public class CreerCV extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String nom = nameC.getText().toString();
                 String prenom = surnameC.getText().toString();
                 String mail = mailC.getText().toString();
@@ -95,8 +96,8 @@ public class CreerCV extends AppCompatActivity {
                 String Skill = SkillC.getText().toString();
                 String Language = LanguageC.getText().toString();
 
-                if(nom.isEmpty() || prenom.isEmpty() || mail.isEmpty() || phone.isEmpty()
-                        || Formation.isEmpty()||Experience.isEmpty()||Skill.isEmpty()||Language.isEmpty()){
+                if (nom.isEmpty() || prenom.isEmpty() || mail.isEmpty() || phone.isEmpty()
+                        || Formation.isEmpty() || Experience.isEmpty() || Skill.isEmpty() || Language.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Some Text fields are empty!", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -118,6 +119,7 @@ public class CreerCV extends AppCompatActivity {
                 dataSave.put("Competence", Skill);
                 dataSave.put("Langue", Language);
 
+
                 store.collection("CV").document(MailUser).update(dataSave)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
@@ -130,55 +132,11 @@ public class CreerCV extends AppCompatActivity {
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
+
                                 Toast.makeText(getApplicationContext(), "Error Update!", Toast.LENGTH_SHORT).show();
                             }
                         });
             }
         });
-
-        pdpCand = (ImageButton) findViewById(R.id.btnImg_ajoutPdpCandidat);
-
-        pdpCand.setOnClickListener(new Button.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                Intent chooserIntent = null;
-                try{
-                    Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                    getIntent.setType("image/*");
-
-                    Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    pickIntent.setType("image/*");
-
-                    chooserIntent = Intent.createChooser(getIntent, "Select Image");
-                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {pickIntent});
-
-                    startActivityForResult(chooserIntent, PICK_IMAGE);
-                }catch (Exception e) {
-                    Log.w(TAG, "Select Image Error", e);
-                    return;
-                }
-            }
-        } );
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        if (requestCode == PICK_IMAGE) {
-            Uri targetUri;
-            try{
-                targetUri = data.getData();
-            }catch(Exception e){ return; }
-
-            Bitmap bitmap;
-
-            try {
-                bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
-                pdpCand.setImageBitmap(bitmap);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
     }
 }

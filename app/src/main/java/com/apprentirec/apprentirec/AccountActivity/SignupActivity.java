@@ -111,7 +111,7 @@ public class SignupActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (candidateOrNot==false && HROrNot==false){
+                if (!candidateOrNot && !HROrNot){
                     Toast.makeText(getApplicationContext(), "Select candidate or HR", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -127,14 +127,14 @@ public class SignupActivity extends AppCompatActivity {
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
 
-                                final String nameTable,Email,fName,Name;
+                                final String nameTable,fName,Name;
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
 
 
-                                    if (candidateOrNot==true){
+                                    if (candidateOrNot){
                                         nameTable="Candidat";
                                         fName="firstNameC";
                                         Name="nameC";
@@ -160,10 +160,10 @@ public class SignupActivity extends AppCompatActivity {
                                             Toast.makeText(SignupActivity.this, "User successfully added.", Toast.LENGTH_SHORT).show();
 
                                             //rh or candidate login à completer
-                                            if (candidateOrNot==true) {
-                                                Intent i = getIntent();
-                                                i.putExtra(CLE,inputEmail.getText());
-                                                startActivity(new Intent(SignupActivity.this, CandidateProfileActivity.class));
+                                            if (candidateOrNot) {
+                                                Intent i = new Intent(SignupActivity.this, CandidateProfileActivity.class);
+                                                i.putExtra(CLE,email);
+                                                startActivity(i);
                                                 finish();
                                             }
                                             else{
