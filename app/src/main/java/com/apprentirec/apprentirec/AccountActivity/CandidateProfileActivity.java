@@ -13,6 +13,7 @@ public class CandidateProfileActivity extends AppCompatActivity {
 
     public static String EmailUser;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,10 +25,15 @@ public class CandidateProfileActivity extends AppCompatActivity {
         Button ButCV = (Button) findViewById(R.id.cvCandidate);
 
         ButCV.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
                 startActivity(new Intent(CandidateProfileActivity.this, ConsultCV.class));
                 onPause();
+            }
+        });
+        Button ButLogout = (Button) findViewById(R.id.logoutCandidate);
+        ButLogout.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
             }
         });
 

@@ -21,9 +21,10 @@
         <activity android:name=".AccountActivity.ResetPasswordActivity" />
         <activity android:name=".AccountActivity.CandidateProfileActivity" />
         <activity android:name=".AccountActivity.HRProfileActivity" />
-        <activity android:name=".CV.CreerCV"></activity>
+        <activity android:name=".CV.CreerCV" />
         <activity android:name=".CV.ConsultCV" />
-        <activity android:name=".ListOfferHR"></activity>
+        <activity android:name=".ListOfferHR" />
+        <activity android:name=".ConsultOffer"></activity>
     </application>
 
 </manifest>
