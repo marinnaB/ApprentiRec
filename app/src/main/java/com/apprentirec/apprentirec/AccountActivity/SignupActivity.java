@@ -36,6 +36,7 @@ public class SignupActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private FirebaseAuth auth;
     private FirebaseFirestore store;
+    public static final String CLE = "CleEmailUser";
 
 
     @Override
@@ -160,7 +161,8 @@ public class SignupActivity extends AppCompatActivity {
 
                                             //rh or candidate login à completer
                                             if (candidateOrNot==true) {
-
+                                                Intent i = getIntent();
+                                                i.putExtra(CLE,inputEmail.getText());
                                                 startActivity(new Intent(SignupActivity.this, CandidateProfileActivity.class));
                                                 finish();
                                             }
