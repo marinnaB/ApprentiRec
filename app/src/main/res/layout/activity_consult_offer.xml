@@ -4,117 +4,136 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConsultOffer">
+    tools:context=".Offer_p.ConsultOffer"
+    tools:layout_editor_absoluteY="81dp">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_modifyOffer"
+        android:layout_width="55dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        app:backgroundTint="#0126ae90"
+        app:rippleColor="@color/bg_register"
+        tools:layout_editor_absoluteX="313dp"
+        tools:layout_editor_absoluteY="440dp" />
 
     <TextView
         android:id="@+id/titre_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Date"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="48dp" />
+        android:layout_width="155dp"
+        android:layout_height="16dp"
+        android:text="Date de prise de poste"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="409dp" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_titre"
+        android:layout_width="252dp"
+        android:layout_height="20dp"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="155dp"
+        android:layout_height="20dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="233dp"
-        tools:layout_editor_absoluteY="48dp" />
+        tools:layout_editor_absoluteX="219dp"
+        tools:layout_editor_absoluteY="409dp" />
 
     <TextView
         android:id="@+id/titre_dureeContrat"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="16dp"
         android:text="Durée du contrat"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="89dp" />
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="141dp" />
 
     <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_duree"
+        android:layout_width="140dp"
+        android:layout_height="20dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="233dp"
-        tools:layout_editor_absoluteY="89dp" />
+        tools:layout_editor_absoluteX="228dp"
+        tools:layout_editor_absoluteY="141dp" />
 
     <TextView
         android:id="@+id/titre_entreprise"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="16dp"
         android:text="Entreprise"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="138dp" />
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="188dp" />
 
     <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_entreprise"
+        android:layout_width="141dp"
+        android:layout_height="20dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="233dp"
-        tools:layout_editor_absoluteY="138dp" />
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="188dp" />
 
     <TextView
         android:id="@+id/titre_lieu"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="17dp"
         android:text="Lieu"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="188dp" />
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="247dp" />
 
     <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_lieu"
+        android:layout_width="141dp"
+        android:layout_height="20dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="233dp"
-        tools:layout_editor_absoluteY="188dp" />
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="245dp" />
 
     <TextView
         android:id="@+id/titre_profil"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="16dp"
         android:text="Profil requis"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="245dp" />
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="308dp" />
 
     <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_profil"
+        android:layout_width="141dp"
+        android:layout_height="20dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="233dp"
-        tools:layout_editor_absoluteY="245dp" />
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="308dp" />
 
     <TextView
         android:id="@+id/titre_statut"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="16dp"
         android:text="Statut"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="298dp" />
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="366dp" />
 
     <TextView
         android:id="@+id/titre_typeContrat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="typeContrat"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="347dp" />
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="87dp" />
 
     <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_statut"
+        android:layout_width="115dp"
+        android:layout_height="20dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="233dp"
-        tools:layout_editor_absoluteY="298dp" />
+        tools:layout_editor_absoluteX="219dp"
+        tools:layout_editor_absoluteY="366dp" />
 
     <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_typeC"
+        android:layout_width="141dp"
+        android:layout_height="17dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="233dp"
-        tools:layout_editor_absoluteY="347dp" />
+        tools:layout_editor_absoluteX="227dp"
+        tools:layout_editor_absoluteY="87dp" />
+
 </android.support.constraint.ConstraintLayout>

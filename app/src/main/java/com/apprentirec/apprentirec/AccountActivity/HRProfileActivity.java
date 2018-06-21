@@ -7,9 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.apprentirec.apprentirec.ListOfferHR;
+import com.apprentirec.apprentirec.Offer_p.createOffer;
 import com.apprentirec.apprentirec.R;
-
-import java.util.List;
 
 public class HRProfileActivity extends AppCompatActivity {
 
@@ -19,7 +18,7 @@ public class HRProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_candidate_profile);
+        setContentView(R.layout.activity_hrprofile);
 
         Intent i = getIntent();
         EmailUser = i.getStringExtra(LoginActivity.CLE);
@@ -36,6 +35,14 @@ public class HRProfileActivity extends AppCompatActivity {
         ButLogout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        Button ButCreate = (Button) findViewById(R.id.createOffer);
+        ButCreate.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(HRProfileActivity.this, createOffer.class));
+                onPause();
             }
         });
 

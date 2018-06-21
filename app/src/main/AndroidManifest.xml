@@ -24,7 +24,8 @@
         <activity android:name=".CV.CreerCV" />
         <activity android:name=".CV.ConsultCV" />
         <activity android:name=".ListOfferHR" />
-        <activity android:name=".ConsultOffer"></activity>
+        <activity android:name=".Offer_p.ConsultOffer" />
+        <activity android:name=".Offer_p.createOffer"></activity>
     </application>
 
 </manifest>
