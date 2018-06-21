@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/offerProfile"
+        android:layout_width="108dp"
+        android:layout_height="25dp"
+        android:text="offerProfile"
+        app:layout_constraintBottom_toTopOf="@+id/offerLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/offerDuration" />
+
+    <TextView
+        android:id="@+id/offerDescription"
+        android:layout_width="312dp"
+        android:layout_height="65dp"
+        android:text="offerDescription"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/offerLocation" />
+
+    <TextView
+        android:id="@+id/offerLocation"
+        android:layout_width="108dp"
+        android:layout_height="25dp"
+        android:text="offerLocation"
+        app:layout_constraintBottom_toTopOf="@+id/offerDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/offerDate"
+        app:layout_constraintTop_toBottomOf="@+id/offerProfile" />
+
+    <TextView
+        android:id="@+id/offerDate"
+        android:layout_width="108dp"
+        android:layout_height="25dp"
+        android:text="offerDate"
+        app:layout_constraintBottom_toTopOf="@+id/offerDescription"
+        app:layout_constraintEnd_toStartOf="@+id/offerLocation"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/offerProfile" />
+
+    <TextView
+        android:id="@+id/offerDuration"
+        android:layout_width="108dp"
+        android:layout_height="25dp"
+        android:text="offerDuration"
+        app:layout_constraintBottom_toTopOf="@+id/offerLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/offerType"
+        app:layout_constraintTop_toBottomOf="@+id/offerStatut" />
+
+    <TextView
+        android:id="@+id/offerType"
+        android:layout_width="108dp"
+        android:layout_height="25dp"
+        android:text="offerType"
+        app:layout_constraintBottom_toTopOf="@+id/offerProfile"
+        app:layout_constraintEnd_toStartOf="@+id/offerDuration"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/offerEntreprise" />
+
+    <TextView
+        android:id="@+id/offerStatut"
+        android:layout_width="108dp"
+        android:layout_height="25dp"
+        android:text="offerStatut"
+        app:layout_constraintBottom_toTopOf="@+id/offerDuration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/offerEntreprise"
+        app:layout_constraintTop_toBottomOf="@+id/offerTitle" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.039"
+        app:srcCompat="@drawable/apprentirec" />
+
+    <TextView
+        android:id="@+id/offerTitle"
+        android:layout_width="159dp"
+        android:layout_height="36dp"
+        android:text="offerTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.124" />
+
+    <TextView
+        android:id="@+id/offerEntreprise"
+        android:layout_width="108dp"
+        android:layout_height="25dp"
+        android:text="offerEntreprise"
+        app:layout_constraintBottom_toTopOf="@+id/offerType"
+        app:layout_constraintEnd_toStartOf="@+id/offerStatut"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <android.support.constraint.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</android.support.constraint.ConstraintLayout>
