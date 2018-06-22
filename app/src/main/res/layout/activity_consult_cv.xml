@@ -79,49 +79,18 @@
         app:layout_constraintStart_toEndOf="@+id/text_prenomCandidat"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <FrameLayout
-        android:layout_width="89dp"
-        android:layout_height="89dp"
-        android:layout_gravity="bottom|right"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/text_saveCV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/Modify"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            android:textSize="14sp"
-            android:visibility="visible" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/ModifyCV"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            app:backgroundTint="#0126ae90"
-            app:rippleColor="@color/bg_register" />
-
-    </FrameLayout>
-
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
-        android:layout_height="352dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.795"
+        app:layout_constraintHorizontal_bias="0.62"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_numCandidat">
 
@@ -252,5 +221,36 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="89dp"
+        android:layout_height="89dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/text_saveCV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/Modify"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textSize="14sp"
+            android:visibility="visible" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/ModifyCV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:backgroundTint="#0126ae90"
+            app:rippleColor="@color/bg_register" />
+
+    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

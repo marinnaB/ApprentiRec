@@ -31,15 +31,15 @@ public class HRProfileActivity extends AppCompatActivity {
         EmailUser = i.getStringExtra(LoginActivity.CLE);
         store = FirebaseFirestore.getInstance();
 
-        final TextView nameC = (TextView) findViewById(R.id.nameCandidate);
+        final TextView nameC = (TextView) findViewById(R.id.nameHR);
         Button seeJobsHr = (Button) findViewById(R.id.seeJobsHR);
 
-        final DocumentReference docRef = store.collection("Candidat").document(EmailUser);
+        final DocumentReference docRef = store.collection("RH").document(EmailUser);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 DocumentSnapshot document = task.getResult();
-                nameC.setText(document.get("nameC").toString() + " " + document.get("firstNameC").toString());
+                nameC.setText(document.get("nameHR").toString() + " " + document.get("firstNameHR").toString());
             }
         });
 

@@ -117,14 +117,14 @@ public class createOffer extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
-                                Toast.makeText(getApplicationContext(), "Resume created", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Offer created", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getApplicationContext(), "Error Creating CV!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Error Creating Offer!", Toast.LENGTH_SHORT).show();
                             }
                         });
             }

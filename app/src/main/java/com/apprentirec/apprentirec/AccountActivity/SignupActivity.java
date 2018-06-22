@@ -167,7 +167,9 @@ public class SignupActivity extends AppCompatActivity {
                                                 finish();
                                             }
                                             else{
-                                                startActivity(new Intent(SignupActivity.this, HRProfileActivity.class));
+                                                Intent k = new Intent(SignupActivity.this, HRProfileActivity.class);
+                                                k.putExtra(CLE,email);
+                                                startActivity(k);
                                                 finish();
                                             }
                                         }
