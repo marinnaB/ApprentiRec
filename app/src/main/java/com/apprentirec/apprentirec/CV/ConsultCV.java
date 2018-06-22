@@ -73,8 +73,6 @@ public class ConsultCV extends AppCompatActivity {
                     t_Language.setText(document.get("Langue").toString());
                 }
                 else{
-                    Toast.makeText(ConsultCV.this, "add DB", Toast.LENGTH_SHORT).show();
-
                     Map<String, Object> data = new HashMap<>();
                     data.put("Nom", "");
                     data.put("Prenom","");

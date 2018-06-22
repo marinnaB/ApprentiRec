@@ -38,7 +38,7 @@ public class ConsultOffer extends AppCompatActivity {
         FloatingActionButton but_modifyOffer = (FloatingActionButton) findViewById(R.id.btn_modifyOffer);
 
         // Accès à cette activité à partir de la liste des offres, puis passer le id offre dans l'intent de ListOfferHR à ConsultOffer
-        /*final DocumentReference docRef = store.collection("Offre").document(id_offer);
+        /*/final DocumentReference docRef = store.collection("Offre").document(id_offer);
 
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override

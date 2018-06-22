@@ -88,9 +88,9 @@
         android:layout_width="89dp"
         android:layout_height="89dp"
         android:layout_gravity="bottom|right"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -114,12 +114,14 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
-        android:layout_height="352dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.795"
         app:layout_constraintStart_toStartOf="parent"
@@ -169,13 +171,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/EXPERIENCES"
                 android:textColor="@android:color/holo_green_dark"
                 app:layout_constraintBottom_toTopOf="@+id/dividerExperience"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="EXPERIENCES"
-                android:layout_marginStart="16dp" />
+                tools:text="EXPERIENCES" />
 
             <View
                 android:id="@+id/dividerExperience"
@@ -202,13 +204,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/SKILLS"
                 android:textColor="@android:color/holo_green_dark"
                 app:layout_constraintBottom_toTopOf="@+id/dividerCompetence"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="SKILLS"
-                android:layout_marginStart="16dp" />
+                tools:text="SKILLS" />
 
             <View
                 android:id="@+id/dividerCompetence"
@@ -234,12 +236,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/LANGUAGES"
                 android:textColor="@android:color/holo_green_dark"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="LANGUAGES"
-                android:layout_marginStart="16dp" />
+                tools:text="LANGUAGES" />
 
             <View
                 android:id="@+id/dividerLangue"

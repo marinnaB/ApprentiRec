@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.apprentirec.apprentirec.AccountActivity.HRProfileActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,6 +28,7 @@ public class createOffer extends AppCompatActivity {
     private static final String TAG = "createOffer_class";
     private FirebaseFirestore store;
     // Trouver une fonction qui fait du texte aléatoire pour une clé unique
+    public String mailRH;
     //private String idOffer;
     private EditText e_date, e_duree, e_entreprise, e_lieu, e_profil, e_status, e_titre, e_typeContrat;
 
@@ -36,6 +38,9 @@ public class createOffer extends AppCompatActivity {
         store = FirebaseFirestore.getInstance();
         //idOffer = ??;
         setContentView(R.layout.activity_create_offer);
+
+        mailRH = HRProfileActivity.EmailUser;
+
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.btn_createOffer);
@@ -98,6 +103,7 @@ public class createOffer extends AppCompatActivity {
 
                 dataSave.put("Date", date);
                 dataSave.put("Duree", durée);
+                dataSave.put("EmailRH",mailRH);
                 dataSave.put("Entreprise", entreprise);
                 dataSave.put("Lieu", lieu);
 
@@ -107,19 +113,18 @@ public class createOffer extends AppCompatActivity {
                 dataSave.put("typeContrat", typeContrat);
 
 
-                store.collection("Offre").document(idOffer).update(dataSave)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                store.collection("Offre").add(dataSave)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
-                            public void onSuccess(Void aVoid) {
-                                Toast.makeText(getApplicationContext(), "Offer Successfully Created!", Toast.LENGTH_SHORT).show();
+                            public void onSuccess(DocumentReference documentReference) {
+                                Toast.makeText(getApplicationContext(), "Resume created", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-
-                                Toast.makeText(getApplicationContext(), "Error Creating an offer!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Error Creating CV!", Toast.LENGTH_SHORT).show();
                             }
                         });
             }
